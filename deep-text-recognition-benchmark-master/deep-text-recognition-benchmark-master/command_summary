@@ -1,0 +1,96 @@
+CUDA_VISIBLE_DEVICES=0 python3 demo.py \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--image_folder ./demo_image/ \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+
+
+
+
+
+
+
+CUDA_VISIBLE_DEVICES=0 python3 demo.py \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--image_folder ./data/skeletonize_result/ \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+\
+
+
+
+python3 create_lmdb_dataset.py \
+ --inputPath /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/[MJ]1_1/data/ \
+ --gtFile /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/[MJ]1_1/gt.txt \
+ --outputPath /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/[MJ]1_1/
+
+ python3 create_lmdb_dataset.py \
+ --inputPath /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/[IC15]ch4_training_word_images_gt/ \
+ --gtFile /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/[IC15]ch4_training_word_images_gt/gt.txt \
+ --outputPath /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/lmdb/[IC15]ch4_training_word_images_gt/
+
+/---------------------------------------------------------------------------------/
+CUDA_VISIBLE_DEVICES=0 python3 demo2.py \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--image_folder /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/dataset/image/[IC13]Challenge2_Test/  \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+
+clear
+
+
+
+CUDA_VISIBLE_DEVICES=0 python3 test.py \
+--eval_data /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation --benchmark_all_eval \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+
+
+ python3 create_lmdb_dataset.py \
+ --inputPath //home/mll/v_mll3/OCR_data/final_dataset/dataset/TeBc/TeBc_gt/TeB_IC15/data/ \
+ --gtFile /home/mll/v_mll3/OCR_data/final_dataset/dataset/TeBc/TeBc_gt/TeB_IC15/data/gt.txt \
+ --outputPath /home/mll/v_mll3/OCR_data/final_dataset/dataset/TeBc/TeBc_gt/TeB_IC15/
+
+
+
+CUDA_VISIBLE_DEVICES=0 python3 test.py \
+--eval_data /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/data/lmbd_f/ --benchmark_all_eval  \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+
+CUDA_VISIBLE_DEVICES=0 python3 test.py \
+--eval_data /home/mll/v_mll3/OCR_data/deep-text-recognition-benchmark-master/dataset/lmdb_c/  --benchmark_all_eval --sensitive  \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+
+CUDA_VISIBLE_DEVICES=0 python3 test.py \
+--eval_data /home/mll/v_mll3/OCR_data/final_dataset/lmdb_IC13/ --sensitive   \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn-case-sensitive.pth
+
+CUDA_VISIBLE_DEVICES=0 python3 test.py \
+--eval_data /home/mll/v_mll3/OCR_data/final_dataset/lmdb_IC15/ --sensitive   \
+--Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+--saved_model pretrained/TPS-ResNet-BiLSTM-Attn-case-sensitive.pth
+
+data list ==
+[apptestai dataset]
+(+) wordbox_seperate
+(+) lmdb_dataset
+
+[paper dataset]
+(+) MRST-TD500_test
+(+) MRST-TD500_train
+(+) ctw1500_test
+(+) ctw1500_train
+(+) totaltext_test
+(+) totaltext_train
+
+
+[already they used and find bad case]
+IC13
+IC15
+MJ
+synthtext

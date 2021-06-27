@@ -1,0 +1,49 @@
+(v_mll3) mll@mll:~/v_mll3/OCR_data/deep-text-recognition-benchmark-master$ CUDA_VISIBLE_DEVICES=0 python3 test.py \
+> --eval_data /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/ --benchmark_all_eval \
+> --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
+> --saved_model pretrained/TPS-ResNet-BiLSTM-Attn.pth
+model input parameters 32 100 20 1 512 256 38 25 TPS ResNet BiLSTM Attn
+loading pretrained model from pretrained/TPS-ResNet-BiLSTM-Attn.pth
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IIIT5k_3000       dataset: /
+sub-directory:  /.       num samples: 3000
+Acc 87.367       normalized_ED 0.959
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/SVT       dataset: /
+sub-directory:  /.       num samples: 647
+Acc 87.326       normalized_ED 0.954
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC03_860  dataset: /
+sub-directory:  /.       num samples: 860
+Acc 95.116       normalized_ED 0.982
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC03_867  dataset: /
+sub-directory:  /.       num samples: 867
+Acc 94.694       normalized_ED 0.980
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC13_857  dataset: /
+sub-directory:  /.       num samples: 857
+Acc 92.999       normalized_ED 0.979
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC13_1015         dataset: /
+sub-directory:  /.       num samples: 1015
+Acc 92.217       normalized_ED 0.967
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC15_1811         dataset: /
+sub-directory:  /.       num samples: 1811
+Acc 78.244       normalized_ED 0.917
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/IC15_2077         dataset: /
+sub-directory:  /.       num samples: 1922
+Acc 75.390       normalized_ED 0.885
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/SVTP      dataset: /
+sub-directory:  /.       num samples: 645
+Acc 80.155       normalized_ED 0.915
+--------------------------------------------------------------------------------
+dataset_root:    /home/mll/v_mll3/OCR_data/dataset/deeptext_dataset/eveluation/CUTE80    dataset: /
+sub-directory:  /.       num samples: 287
+Acc 74.216       normalized_ED 0.880
+--------------------------------------------------------------------------------
+accuracy: IIIT5k_3000: 87.367   SVT: 87.326     IC03_860: 95.116        IC03_867: 94.694        IC13_857: 92.999        IC13_1015: 92.217       IC15_1811: 78.244       IC15_2077: 75.390       SVTP: 80.155    CUTE80: 74.216  total_accuracy: 85.249  averaged_infer_time: 1.366    # parameters: 49.555
+
